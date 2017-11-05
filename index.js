@@ -17,14 +17,18 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
+//Load the routes of the application
 routes(app);
 
+//Load static files
 app.use(express.static('public'))
 
+//root of the application
 app.get('/', (req, res)=>{
     res.send(`Node and express server is running on port ${ PORT}.`);
 });
 
+//listen to the server port number
 app.listen(PORT, ()=>{
     console.log(`App is running on port ${PORT}.`);
 })
